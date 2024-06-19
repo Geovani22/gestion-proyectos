@@ -53,6 +53,8 @@ class PersonaController extends Controller
     public function show(string $id)
     {
         //
+        $personas = Persona::findOrFail($id);
+        return view('personas.show', compact('personas'));
     }
 
     /**
@@ -61,6 +63,9 @@ class PersonaController extends Controller
     public function edit(string $id)
     {
         //
+        $personas = Persona::findOrFail($id);
+        return view('personas.edit', compact('personas'));
+
     }
 
     /**
@@ -69,6 +74,22 @@ class PersonaController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'Nombre'=> 'required',
+            'Apellidos'=> 'required',
+            'Dirección'=> 'required',
+            'Teléfono'=> 'required',
+            'Sexo'=> 'required',
+            'Fecha_nacimiento'=> 'required',
+            'Profesión'=> 'required',
+        ]);
+
+        // Persona::create($request->all());
+        $personas = Persona::findOrFail($id);
+
+        $personas->update($request->all());
+
+        return redirect()->route('personas.index')->with('success','Persona actualizada correctamente.');  
     }
 
     /**
@@ -77,5 +98,8 @@ class PersonaController extends Controller
     public function destroy(string $id)
     {
         //
+        $personas = Persona::findOrFail($id);
+        $personas->delete();
+        return redirect()->route('personas.index')->with('success','Persona Eliminada correctamente.');
     }
 }
