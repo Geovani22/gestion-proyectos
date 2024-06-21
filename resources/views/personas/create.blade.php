@@ -19,19 +19,23 @@
             </div>
             <div class="form-group">
                 <label for="Teléfono">Teléfono</label>
-                <input type="text" class="form-control" id="Teléfono" name="Teléfono">
+                <input type="text" class="form-control" id="Teléfono" name="Teléfono" required>
             </div>
             <div class="form-group">
                 <label for="Sexo">Sexo</label>
-                <input type="text" class="form-control" id="Sexo" name="Sexo">
+                <select class="form-control" name="Sexo" id="Sexo" required>
+                    <option value="" disabled selected>Seleccione...</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="Fecha_nacimiento">Fecha de Nacimiento</label>
-                <input type="date" class="form-control" id="Fecha_nacimiento" name="Fecha_nacimiento">
+                <input type="date" class="form-control" id="Fecha_nacimiento" name="Fecha_nacimiento" required>
             </div>
             <div class="form-group">
                 <label for="Profesión">Profesión</label>
-                <input type="text" class="form-control" id="Profesión" name="Profesión">
+                <input type="text" class="form-control" id="Profesión" name="Profesión" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
