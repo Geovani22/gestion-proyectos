@@ -16,6 +16,12 @@
 
         <!-- Styles -->
         @livewireStyles
+        @yield('css')
+        @yield('js')
+
+        @section('css')
+            <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+        @endsection
     </head>
     <body class="font-sans antialiased">
         <x-banner />

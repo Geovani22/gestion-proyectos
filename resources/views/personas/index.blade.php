@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-
+<script></script>
 @section('content')
     <div class="container">
         <h1>Lista de Personas</h1>
@@ -10,8 +10,8 @@
             </div>
         @endif
 
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped text-center mt-4">
+        <div class="table-responsive mt-5">
+            <table class="table table-bordered table-striped text-center mt-4" id="personas">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
@@ -52,6 +52,20 @@
                     @endforeach
                 </tbody>
             </table>
+
+            @section('js')
+                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#personas').DataTable({
+                            "lengthMenu": [[5,10,50,-1], [5,10,50,'Todos']]
+                        });
+                    });
+                </script>
+            @endsection
         </div>
     </div>
 @stop
